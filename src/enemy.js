@@ -3,7 +3,7 @@ const Character = require('./character');
 
 function Enemy(config) {
   Character.call(this, config);
-  damage = config.damage;
+  this.damage = config.damage;
 }
 
 Enemy.prototype = Object.create(Character.prototype);
@@ -19,7 +19,7 @@ Enemy.prototype._describeAttack = function (target) {
 };
 
 Enemy.prototype.attack = function (target) {
-  target._takeDamage(damage);
+  target._takeDamage(this.damage);
   return this._describeAttack(target);
 };
 
